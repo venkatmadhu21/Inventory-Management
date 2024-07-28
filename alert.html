@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requirement Table</title>
+    <style>
+        /* Add your CSS styles here */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .alert {
+            padding: 15px;
+            background-color: #f44336;
+            color: white;
+            animation: blinker 1s linear infinite;
+        }
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Requirement Table</h1>
+
+    <!-- Alert Message -->
+    <div class="alert">
+        item name: bat item id: KMC-01 has come below the order level and the quantity left is only 22 please reorder it
+    </div>
+
+    <!-- Table -->
+    <table>
+        <tr>
+            <th>Employee ID</th>
+            <th>Item ID</th>
+            <th>Item Name</th>
+            <th>Quantity</th>
+            <th>Request Date</th>
+        </tr>
+        <!-- Table rows will be dynamically generated here -->
+    </table>
+</body>
+</html>

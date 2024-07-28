@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(-100%);
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+            transform: translateX(0);
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+			margin-right: 250px;
+            background-color: #f8f8f8;
+            border-bottom: 2px solid #cc0000;
+        }
+        .logo-column {
+            flex: 1;
+            text-align: left;
+        }
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+        }   
+        .text-column {
+            flex: 2;
+            text-align: center;
+        }
+        .text-column h1 {
+            margin: 0;
+            color: #cc0000;
+        }
+        .text-column p {
+            margin: 5px 0;
+            color: #333;
+        }
+        .button-column {
+            flex: 1;
+            text-align: right;
+        }
+        .button-column button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin-left: 5px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .button-column button:hover {
+            background-color: #45a049;
+        }
+        .navbar {
+            background-color: maroon;
+            color: white;
+        }
+        .navbar a {
+            color: white;
+        }
+        .navbar a:hover {
+            color: lightgray;
+        }
+        *, *:before, *:after {
+            box-sizing: border-box;
+        }
+        html {
+            font-size: 100%;
+        }
+        h1 {
+            color: red;
+            font-size: 1.7rem;   
+            padding-bottom: 1rem;
+        }
+        .about-kmce {
+            color: #cc0000;
+        }
+        .text-base {
+            margin-bottom: 1rem; /* Adjust this value to control the gap size */
+        }
+        .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 30px;
+    color: #ffffff;
+    background-color: #870E03;
+    position: absolute;
+    height: 66px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer__section {
+    flex: 1;
+}
+
+.footer__addr {
+    margin-bottom: 2em;
+}
+
+.footer__logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+.footer__addr h2 {
+    margin-top: 0.4em;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.nav__title {
+    margin-top: 0.4em;  
+    font-weight: 400;
+    font-size: 15px;
+}
+.nav__title1 {
+    margin-top: 0.4em;  
+    font-weight: 400;
+    font-size: 15px;
+    margin-left: 110px;
+}
+
+.footer address {
+    margin-top: 0.4em;
+    font-style: normal;
+    color: white;
+}
+
+.footer__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    max-width: max-content;
+    background-color: rgb(33, 33, 33, 0.07);
+    border-radius: 100px;
+    color: white;
+    line-height: 0;
+    margin: 0.6em 0;
+    font-size: 1rem;
+    padding: 0 1.3em;
+}
+
+.footer ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer li {
+    line-height: 2em;
+}
+
+.footer a {
+    text-decoration: none;
+}
+
+.footer__nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.nav__ul a {
+    color: white;
+}
+
+.nav__ul1 {
+    margin-left:110px;
+}
+
+        @media screen and (min-width: 24.375em) {
+            .legal .legal__links {
+                margin-left: auto;
+            }
+        }
+        @media screen and (min-width: 40.375em) {
+            .footer__nav {
+                flex: 2 0px;
+            }
+            .footer__addr {
+                flex: 1 0px;
+            }
+        }
+    </style>
+    
+    <title>Inventory Management</title>
+</head>
+<body>
+    <div class="header-container">
+        <div class="logo-column">
+            <img src="images/logo.png" class="logo">
+        </div>
+        <div class="text-column">
+            <h1 class="text-4xl font-semibold main-heading">Keshav Memorial College Of Engineering</h1>
+            <p class="text-lg font-medium sub-heading mt-2">A unit of Keshav Memorial Technical Educational Society (KMTES)</p>
+            <p class="text-sm highlight mt-1">Approved by AICTE, New Delhi - Affiliated to Jawaharlal Nehru Technological University, Hyderabad</p>
+    </div>
+   
+</div>
+
+<header class="text-gray-600 body-font navbar">
+    <div class="container mx-auto relative flex flex-wrap p-5 flex-col md:flex-row items-start">
+        <nav class="flex flex-wrap items-start text-base justify-start">
+            <a class="mr-5 hover:text-lightgray" href="#">HOME</a>
+            <a class="mr-5 hover:text-lightgray" href="about.html">ABOUT US</a>
+            <div class="dropdown">
+               
+                <div class="dropdown-content">
+                </div>
+            </div>
+            
+        </nav>
+        <div class="ml-auto mt-4 md:mt-0">
+           
+                Know More
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+</header>
+    
+</div>
+
+<footer class="footer">
+    <div class="footer_section footer_addr">
+        <h2>Contact</h2>
+        <address>
+            Office : 8499981497<br>
+        </address>
+    </div>
+    
+    <div class="footer__section">
+        <h2 class="nav__title1">Email id:</h2>
+        <ul class="nav__ul1">
+            <li>
+                <a href="mailto:admin@kmce.in">admin@kmce.in</a>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="footer__section">
+        <h2 class="nav__title">Landline:</h2>
+        <ul class="nav__ul">
+            <li>
+                <a href="tel:040-xxxx-123">040-xxxx-123</a>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="footer__section">
+        <h2 class="nav__title">Address:</h2>
+        <ul class="nav__ul">
+            <li>
+                <a href="#">Koheda Road, Ibrahimpatnam</a>
+            </li>
+        </ul>
+    </div>
+</footer>
+
+</body>
+</html>

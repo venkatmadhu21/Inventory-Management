@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>STORE KEEPER</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-color: #ffffff; /* White background */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .courses-offered {
+            padding: 2rem;
+            text-align: center;
+            margin-top: -150px;
+        }
+
+       .course-grid {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 2rem;
+          margin-bottom: 100px;
+          max-width: 1200px;
+          margin:  auto; /* Center the container horizontally */
+          overflow: hidden;
+          margin-left: -230px;
+          margin-top: -100px;
+ /* Add margin to the left */
+          margin-right: 10px; /* Add margin to the right */
+}
+
+
+        .course-item {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(1.5, 1.5, 1.5, 1.5); 
+            max-width: 300px;
+            transition: transform 0.3s ease;
+            flex: 0 0 calc(33.33% - 1.33rem);
+            /* Added flex properties */
+            margin-bottom: 2rem;
+            /* Added margin-bottom */
+        }
+
+        .course-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-icon {
+            font-size: 3rem;
+            color: #cc0000;
+            margin-bottom: 1rem;
+        }
+
+        .course-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-description {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .content {
+            margin-left: 220px;
+            padding: 20px;
+            flex: 1;
+            padding-top: 140px;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-bottom: 2px solid #cc0000;
+            position: relative;
+        }
+        .logo-column {
+            position: absolute;
+            left: 20px;
+        }
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .text-column {
+            text-align: center;
+        }
+        .text-column h1 {
+            margin: 0;
+            color: #cc0000;
+        }
+        .text-column p {
+            margin: 5px 0;
+            color: #333;
+        }
+        .navbar {
+            background-color: maroon;
+            color: white;
+            margin-left: 200px;
+        }
+        .navbar a {
+            color: white;
+        }
+        .navbar a:hover {
+            color: lightgray;
+        }
+        .sidenav {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            top: 120px;
+            margin-top: 25px;
+            left: 0;
+            background-color: #111;
+            padding-top: 20px;
+            z-index: 1000;
+            overflow-x: hidden;
+        }
+        .sidenav a {
+            padding: 16px 8px 16px 16px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidenav a:hover {
+            background-color: #575757;
+            border-radius: 40px;
+        }
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 0px 30px;
+            color: #ffffff;
+            background-color: #870E03;
+            position: relative;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            font-family: 'Poppins', sans-serif;
+            flex-wrap: wrap;
+            z-index: 1000;
+        }
+        .footer__section {
+            flex: 1;
+        }
+        .footer__addr {
+            margin-bottom: 2em;
+        }
+        .footer__logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+        }
+        .footer__addr h2 {
+            margin-top: 0.4em;
+            font-size: 15px;
+            font-weight: 400;
+        }
+        .nav__title {
+            margin-top: 0.4em;  
+            font-weight: 600;
+            font-size: 15px;
+            color: red;
+        }
+        .nav__title1 {
+            margin-top: 0.4em;  
+            font-weight: 400;
+            font-size: 15px;
+            margin-left: 110px;
+        }
+        .footer address {
+            margin-top: 0.4em;
+            font-style: normal;
+            color: white;
+        }
+        .footer__btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 36px;
+            max-width: max-content;
+            background-color: rgb(33, 33, 33, 0.07);
+            border-radius: 100px;
+            color: white;
+            line-height: 0;
+            margin: 0.6em 0;
+            font-size: 1rem;
+            padding: 0 1.3em;
+        }
+        .footer ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .footer li {
+            line-height: 2em;
+        }
+        .footer a {
+            text-decoration: none;
+        }
+        .footer__nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+        }
+        .nav__ul a {
+            color: white;
+        }
+        .nav__ul1 {
+            margin-left:110px;
+        }
+        @media (max-width: 768px) {
+            .text-column h1 {
+                font-size: 1.5em;
+            }
+            .text-column p {
+                font-size: 1em;
+            }
+        }
+	
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <div class="logo-column">
+            <img src="images/logo.png" class="logo">
+        </div>
+        <div class="text-column">
+            <h1 class="text-4xl font-semibold main-heading">Keshav Memorial College Of Engineering</h1>
+            <p class="text-lg font-medium sub-heading mt-2">A unit of Keshav Memorial Technical Educational Society (KMTES)</p>
+            <p class="text-sm highlight mt-1">Approved by AICTE, New Delhi - Affiliated to Jawaharlal Nehru Technological University, Hyderabad</p>
+        </div>
+    </div>
+    <header class="text-gray-600 body-font navbar">
+        <div class="container mx-auto relative flex flex-wrap p-5 flex-col md:flex-row items-start">
+            <nav class="flex flex-wrap items-start text-base justify-start">
+                <a class="mr-5 hover:text-lightgray" href="index.html">HOME</a>
+                <a class="mr-5 hover:text-lightgray" href="about.html">ABOUT US</a>
+                <a class="mr-5 hover:text-lightgray" href="storeiv.py">ISSUE VOUCHER</a>
+                <div class="dropdown">
+                    <a class="mr-5 hover:text-lightgray" href="hello_form[1].html">LOGIN</a>
+                </div>
+            </nav>
+        </div>
+		
+        <div class="sidenav">
+            <a href="#">CHECK IV</a>
+            <a href="#">CHECK RV</a>
+            <a href="#">Records</a>
+        </div>
+
+    </header>
+	
+    <div class="content">
+	<main class="content">
+        <section class="courses-offered">
+            <div class="course-grid">
+                <div class="course-item">
+                    <div class="course-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3 class="course-title">Recieving and Storage</h3>
+                    <p class="course-description">The storekeeper receives incoming shipments, checks their accuracy, and ensures they are properly stored in designated locations within the inventory storage area.</p>
+                </div>
+                <div class="course-item">
+                    <div class="course-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="course-title">Record Keeping</h3>
+                    <p class="course-description">They meticulously track inventory activities, recording receipts, withdrawals, and adjustments. This entails updating inventory databases promptly to reflect real-time stock levels and movements.</p>
+
+
+
+                </div>
+                <div class="course-item">
+                    <div class="course-icon">
+                        <i class="fas fa-cloud-rain"></i>
+                    </div>
+                    <h3 class="course-title">Inventory Control </h3>
+                    <p class="course-description">Storekeepers regularly count inventory, identifying shortages and discrepancies, and reconcile them. They also monitor turnover rates and help set optimal stock levels to avoid shortages or excess stock.</p>
+                </div>
+            </div>
+        </section>
+    <footer class="footer">
+        <div class="footer__section footer_addr">
+            <h2>Contact</h2>
+            <address>
+                Office : 8499981497<br>
+            </address>
+        </div>
+
+        <div class="footer__section">
+            <h2 class="nav__title">Email id:</h2>
+            <ul class="nav__ul">
+                <li>
+                    <a href="mailto:admin@kmce.in">admin@kmce.in</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer__section">
+            <h2 class="nav__title">Landline:</h2>
+            <ul class="nav__ul">
+                <li>
+                    <a href="tel:040-xxxx-123">040-xxxx-123</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer__section">
+            <h2 class="nav__title">Address:</h2>
+            <ul class="nav__ul">
+                <li>
+                    <a href="#">Koheda Road, Ibrahimpatnam</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

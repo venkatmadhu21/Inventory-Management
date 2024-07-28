@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+		<script src="https://cdn.tailwindcss.com"></script>
+		<style>
+			body {
+				font-family: 'Poppins', sans-serif;
+				margin: 0;
+				display: flex;
+				flex-direction: column;
+				min-height: 100vh;
+			}
+
+			.header-container {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 10px;
+				background-color: #f8f8f8;
+				border-bottom: 2px solid #cc0000;
+				text-align: center;
+				position: fixed;
+				width: 100%;
+				top: 0;
+				z-index: 1000;
+			}
+
+			.logo {
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+				object-fit: cover;
+				margin-right: 20px;
+			}
+
+			.header-container .text-column {
+				flex: 1;
+			}
+
+			.header-container h1,
+			.header-container h2,
+			.header-container p {
+				margin: 0;
+			}
+
+			.header-container h1 {
+				color: #cc0000;
+				font-size: 1.5rem;
+				font-size: 24px; 
+				margin-bottom: 5px;
+			}
+
+			.header-container h2 {
+				color: blue;
+				font-size: 1.25rem;
+				font-size-24px;
+				margin-bottom: 5px;
+			}
+
+			.header-container p {
+				color: #333;
+				font-size-24px;
+				font-size: 1rem;
+			}
+
+			.footer {
+			    font-size-24px;
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				padding: 0px 30px;
+				color: #ffffff;
+				background-color: #870E03;
+				position: relative;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				font-family: 'Poppins', sans-serif;
+				flex-wrap: wrap;
+				z-index: 1000;
+			}
+
+			.footer__section {
+				flex: 1;
+			}
+
+			.footer__addr {
+				margin-top: 0.4em;
+				font-size: 15px;
+				
+				font-weight: 400;
+			}
+
+			.footer__logo {
+				font-family: 'Poppins', sans-serif;
+				font-weight: 400;
+				text-transform: uppercase;
+				font-size: 1.5rem;
+			}
+
+			.footer__addr h2 {
+				margin-top: 0.4em;
+				font-size: 15px;
+				font-weight: 400;
+			}
+
+			.nav__title {
+				margin-top: 0.4em;
+				font-size: 15px;
+				font-size-24px;
+				font-weight: 400;
+				margin-left: auto;
+			}
+
+			.footer address {
+				margin-top: 0.4em;
+				font-style: normal;
+				color: white;
+			}
+
+			.footer__btn {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 36px;
+				max-width: max-content;
+				background-color: rgba(33, 33, 33, 0.07);
+				border-radius: 100px;
+				color: white;
+				line-height: 0;
+				margin: 0.6em 0;
+				font-size: 1rem;
+				padding: 0 1.3em;
+			}
+
+			.footer ul {
+				list-style: none;
+				padding-left: 0;
+			}
+
+			.footer li {
+				line-height: 30px;
+			}
+
+			.footer a {
+				text-decoration: none;
+			}
+
+			.footer__nav {
+				display: flex;
+				justify-content: space-between;
+				flex-wrap: wrap;
+				font-size-24px;
+				align-items: flex-start;
+				width: 100%;
+			}
+
+			.nav__ul a {
+				color: white;
+			}
+
+			@media screen and (min-width: 24.375em) {
+				.legal .legal__links {
+					margin-left: auto;
+				}
+			}
+
+			@media screen and (min-width: 40.375em) {
+				.footer__nav {
+					flex: 2 0px;
+				}
+
+				.footer__addr {
+					flex: 1 0px;
+				}
+			}
+
+			.navbar {
+				background-color: maroon;
+				color: white;
+				font-size-24px;
+				margin-left: 200px;
+				padding-top: 100px;
+			}
+
+			.navbar a {
+				color: white;
+				margin-right: 1rem;
+			}
+
+			.navbar a:hover {
+			    font-size-24px;
+				color: lightgray;
+				border-radius: 40px;
+			}
+
+			.content {
+				margin-left: 180px;
+				padding: 10px;
+				flex: 1;
+				font-size-24px;
+				padding-top: 140px;
+			}
+
+			.inventory {
+				padding: 2rem;
+				text-align: center;
+				margin-top: -100px;
+				font-size-24px;
+				justify-content: center;
+				margin-right: 110px;
+			}
+
+			.inventory-grid {
+				display: flex;
+				font-size-24px;
+				flex-wrap: wrap;
+				justify-content: center;
+				gap: 2rem;
+				margin-bottom: 100px;
+				max-width: 1200px;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+
+			.inventory-item {
+				background-color: #fff;
+				padding: 2rem;
+				font-size-24px;
+				border-radius: 8px;
+				box-shadow: 0 4px 6px rgba(1.5, 1.5, 1.5, 1.5);
+				max-width: 300px;
+				transition: transform 0.3s ease;
+				flex: 0 0 calc(33.33% - 1.33rem);
+				margin-bottom: 2rem;
+			}
+
+			.inventory-item:hover {
+				transform: translateY(-5px);
+			}
+
+			.inventory-icon {
+				font-size: 3rem;
+				color: #cc0000;
+				margin-bottom: 1rem;
+			}
+
+			.inventory-title {
+				font-size: 1.5rem;
+				font-weight: 600;
+				font-size-24px;
+				margin-bottom: 0.5rem;
+			}
+
+			.inventory-description {
+				font-size: 1rem;
+				color: #555;
+			}
+
+			/* Updated CSS for dropdown menu */
+			.group:hover .dropdown-content {
+				display: block;
+			}
+
+			.dropdown-content {
+				display: none;
+				font-size-24px;
+				position: absolute;
+				background-color: black;
+				color: white;
+				box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+				z-index: 1;
+				pointer-events: auto; /* Allow pointer events on dropdown */
+			}
+
+			.dropdown-content a {
+				color: white;
+				padding: 12px 16px;
+				text-decoration: none;
+				display: block;
+			}
+
+			.dropdown-content a:hover {
+				background-color: gray;
+			}
+
+			/* Styles for the side navigation */
+			.sidenav {
+				height: 100%;
+				width: 200px;
+				position: fixed;
+				top: 120px;
+				left: 0;
+				background-color: #111;
+				padding-top: 20px;
+				z-index: 1000;
+				overflow-x: hidden;
+			}
+
+			.sidenav a,
+			.sidenav .dropdown-btn {
+				padding: 16px 8px 16px 16px;
+				text-decoration: none;
+				font-size: 18px;
+				color: white;
+				display: block;
+				transition: 0.3s;
+			}
+
+			.sidenav a:hover,
+			.sidenav .dropdown-btn:hover {
+				background-color: #575757;
+				border-radius: 40px;
+			}
+
+			.sidenav .dropdown-container {
+				display: none;
+				background-color: #262626;
+				padding-left: 16px;
+			}
+		</style>
+
+		<title>Inventory</title>
+	</head>
+
+	<body>
+		<header class="header-container">
+			<img src="images/logo.png" alt="College Logo" class="logo">
+			<div class="text-column">
+				<h1 class="text-4xl font-semibold main-heading">Keshav Memorial College Of Engineering</h1>
+				<p class="text-lg font-medium sub-heading mt-2">A unit of Keshav Memorial Technical Educational Society (KMTES)</p>
+				<p>Approved by AICTE, New Delhi - Affiliated to Jawaharlal Nehru Technological University, Hyderabad</p>
+			</div>
+		</header>
+
+		<header class="text-gray-600 body-font navbar" role="navigation">
+			<div class="container mx-auto relative flex flex-wrap p-5 flex-col md:flex-row items-center">
+			 <div class="container mx-auto relative flex flex-wrap p-5 flex-col md:flex-row items-start">
+			<nav class="flex flex-wrap items-start text-base justify-start">
+				<a class="mr-5 hover:text-lightgray" href="index.html">HOME</a>
+				<a class="mr-5 hover:text-lightgray" href="about.html">ABOUT US</a>
+			 
+				<div class="dropdown">
+					<div class="dropdown-content">
+					</div>
+				</div>
+			
+				<a href="index.html" class="flex title-font font-medium items-center mb-4 md:mb-0"></a>
+				<nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+				 <!-- Updated code with the form to display employee details -->
+				   <div class="relative group">
+		<a class="mr-5 cursor-pointer">EMPLOYEE</a>
+		<div class="dropdown-content">
+			<form id="employeeForm" method="post" style="display: none;">
+				<input type="hidden" name="action" value="">
+			</form>
+			<a onclick="submitForm_emp('Display')">Display</a>
+			<div class="dropdown-divider"></div>
+			<a href="#" onclick="submitForm_emp('Search')">Search</a>
+			<a href="#" onclick="submitForm_emp('Sort')">Sort</a>
+			<div class="dropdown-divider"></div>
+			<a  onclick="submitForm_emp('Delete')">Delete</a>
+			<a onclick="submitForm_emp('Insert')">Insert</a>
+			<a onclick="submitForm_emp('Update')">Update</a>
+		</div>
+	</div>
+                <div class="relative group">
+		<a class="mr-5 cursor-pointer">DEPARTMENT</a>
+		<div class="dropdown-content">
+			<form id="departmentform" method="post" style="display: none;">
+				<input type="hidden" name="action" value="">
+			</form>
+			<a onclick="submitForm_dep('Display')">Display</a>
+			<div class="dropdown-divider"></div>
+			<a href="#" onclick="submitForm_dep('Search')">Search</a>
+			<a href="#" onclick="submitForm_dep('Sort')">Sort</a>
+			<div class="dropdown-divider"></div>
+			<a  onclick="submitForm_dep('Delete')">Delete</a>
+			<a onclick="submitForm_dep('Insert')">Insert</a>
+			<a onclick="submitForm_dep('Update')">Update</a>
+		</div>
+	</div>
+	<script>
+		function submitForm_dep(action) {
+
+			var form1 = document.getElementById('departmentform');
+			form1.action = action.toLowerCase() + '_dep.py';
+			form1.querySelector('input[name="action"]').value = action;
+			form1.submit();
+		}
+		</script>
+            <div class="relative group">
+		<a class="mr-5 cursor-pointer">SUPPLIERS</a>
+	    <div class="dropdown-content">
+		 	<form id="suppliersForm" method="post" style="display: none;">
+			     <input type="hidden" name="action" value="">
+			</form>
+			<a onclick="submitForm_supp('Display')">Display</a>
+			<div class="dropdown-divider"></div>
+			<a href="#" onclick="submitForm_supp('Search')">Search</a>
+			<a href="#" onclick="submitForm_supp('Sort')">Sort</a>
+			<div class="dropdown-divider"></div>
+			<a  onclick="submitForm_supp('Delete')">Delete</a>
+			<a onclick="submitForm_supp('Insert')">Insert</a>
+			<a onclick="submitForm_supp('Update')">Update</a>
+		</div>
+	</div>
+	    <div class="relative group">
+		<a class="mr-5 cursor-pointer">ISSUE TABLE</a>
+		<div class="dropdown-content">
+			<form id="issueForm" method="post" style="display: none;">
+				<input type="hidden" name="action" value="">
+			</form>
+			<a onclick="submitForm_iss('Display')">Display</a>
+			<div class="dropdown-divider"></div>
+			<a href="#" onclick="submitForm_iss('Search')">Search</a>
+			<a href="#" onclick="submitForm_iss('Sort')">Sort</a>
+			<div class="dropdown-divider"></div>
+			<a  onclick="submitForm_iss('Delete')">Delete</a>
+			<a onclick="submitForm_iss('Insert')">Insert</a>
+			<a onclick="submitForm_iss('Update')">Update</a>
+		</div>
+	 </div>
+		<script>
+		function submitForm_iss(action) {
+			var form = document.getElementById('issueForm');
+			form.action = action.toLowerCase() + '_issue.py';
+			form.querySelector('input[name="action"]').value = action;
+			form.submit();
+		}
+	</script>
+	    <div class="relative group">
+		<a class="mr-5 cursor-pointer">ITEM</a>
+		<div class="dropdown-content">
+			<form id="itemForm" method="post" style="display: none;">
+				<input type="hidden" name="action" value="">
+			</form>
+			<a onclick="submitForm_item('Display')">Display</a>
+			<div class="dropdown-divider"></div>
+			<a href="#" onclick="submitForm_item('Search')">Search</a>
+			<a href="#" onclick="submitForm_item('Sort')">Sort</a>
+			<div class="dropdown-divider"></div>
+			<a  onclick="submitForm_item('Delete')">Delete</a>
+			<a onclick="submitForm_item('Insert')">Insert</a>
+			<a onclick="submitForm_item('Update')">Update</a>
+		</div>
+	 </div>
+		<script>
+		function submitForm_item(action) {
+			var form = document.getElementById('itemForm');
+			form.action = action.toLowerCase() + '_item.py';
+			form.querySelector('input[name="action"]').value = action;
+			form.submit();
+		}
+	</script>
+	<div class="relative group">
+		<a class="mr-5 cursor-pointer">DESIGNATION</a>
+		<div class="dropdown-content">
+			<form id="designationform" method="post" style="display: none;">
+				<input type="hidden" name="action" value="">
+			</form>
+			<a onclick="submitForm_des('Display')">Display</a>
+			<div class="dropdown-divider"></div>
+			<a href="#" onclick="submitForm_des('Search')">Search</a>
+			<a href="#" onclick="submitForm_des('Sort')">Sort</a>
+			<div class="dropdown-divider"></div>
+			<a  onclick="submitForm_des('Delete')">Delete</a>
+			<a onclick="submitForm_des('Insert')">Insert</a>
+			<a onclick="submitForm_des('Update')">Update</a>
+		</div>
+	 </div>
+		<script>
+		function submitForm_des(action) {
+			var form = document.getElementById('designationform');
+			form.action = action.toLowerCase() + '_des.py';
+			form.querySelector('input[name="action"]').value = action;
+			form.submit();
+		}
+	</script>
+	
+		
+		<div class="relative group">
+		<a class="mr-5 cursor-pointer">RV ENTITY</a>
+		<div class="dropdown-content">
+			<form id="entityform" method="post" style="display: none;">
+				<input type="hidden" name="action" value="">
+			</form>
+			<a onclick="submitForm_ent('Display')">Display</a>
+			<div class="dropdown-divider"></div>
+			<a href="#" onclick="submitForm_ent('Search')">Search</a>
+			<a href="#" onclick="submitForm_ent('Sort')">Sort</a>
+			<div class="dropdown-divider"></div>
+			<a  onclick="submitForm_ent('Delete')">Delete</a>
+			<a onclick="submitForm_ent('Insert')">Insert</a>
+			<a onclick="submitForm_ent'Update')">Update</a>
+		</div>
+	</div>
+	    <script>
+		function submitForm_ent(action) {
+			var form = document.getElementById('entityform');
+			form.action = action.toLowerCase() + '_entity.py';
+			form.querySelector('input[name="action"]').value = action;
+			form.submit();
+		}
+	</script>
+			<div class="relative group">
+		<a class="mr-5 cursor-pointer">RV</a>
+		<div class="dropdown-content">
+			<form id="rvform" method="post" style="display: none;">
+				<input type="hidden" name="action" value="">
+			</form>
+			<a onclick="submitForm_RV('Display')">Display</a>
+			<div class="dropdown-divider"></div>
+			<a href="#" onclick="submitForm_RV('Search')">Search</a>
+			<a href="#" onclick="submitForm_RV('Sort')">Sort</a>
+			<div class="dropdown-divider"></div>
+			<a  onclick="submitForm_RV('Delete')">Delete</a>
+			<a onclick="submitForm_RV('Insert')">Insert</a>
+			<a onclick="submitForm_RV('Update')">Update</a>
+		</div>
+	</div>
+	    <script>
+		function submitForm_RV(action) {
+			var form = document.getElementById('rvform');
+			form.action = action.toLowerCase() + '_rv.py';
+			form.querySelector('input[name="action"]').value = action;
+			form.submit();
+		}
+	</script>
+			<div class="relative group">
+		<a class="mr-5 cursor-pointer">LOGIN</a>
+		<div class="dropdown-content">
+			<form id="loginform" method="post" style="display: none;">
+				<input type="hidden" name="action" value="">
+			</form>
+			<a onclick="submitForm_log('Display')">Display</a>
+			<div class="dropdown-divider"></div>
+			<a href="#" onclick="submitForm_log('Search')">Search</a>
+			<a href="#" onclick="submitForm_log('Sort')">Sort</a>
+			<div class="dropdown-divider"></div>
+			<a  onclick="submitForm_log('Delete')">Delete</a>
+			<a onclick="submitForm_log('Insert')">Insert</a>
+			<a onclick="submitForm_log('Update')">Update</a>
+		</div>
+	</div>
+	   <div class="relative group">
+		<a class="mr-5 cursor-pointer">REQ</a>
+		<div class="dropdown-content">
+			<form id="requirementform" method="post" style="display: none;">
+				<input type="hidden" name="action" value="">
+			</form>
+			<a onclick="submitForm_req('Display')">Display</a>
+			<div class="dropdown-divider"></div>
+			<a href="#" onclick="submitForm_req('Search')">Search</a>
+			<a href="#" onclick="submitForm_req('Sort')">Sort</a>
+			<div class="dropdown-divider"></div>
+			<a  onclick="submitForm_req('Delete')">Delete</a>
+			<a onclick="submitForm_req('Insert')">Insert</a>
+			<a onclick="submitForm_req('Update')">Update</a>
+		</div>
+	</div>
+	<script>
+		function submitForm_req(action) {
+
+			var form1 = document.getElementById('requirementform');
+			form1.action = action.toLowerCase() + '_req.py';
+			form1.querySelector('input[name="action"]').value = action;
+			form1.submit();
+		}
+	</script>
+	<script>
+		function submitForm_emp(action) {
+
+			var form1 = document.getElementById('employeeForm');
+			form1.action = action.toLowerCase() + '_emp.py';
+			form1.querySelector('input[name="action"]').value = action;
+			form1.submit();
+		}
+	</script>
+    <script>
+		function submitForm_supp(action) {
+			var form = document.getElementById('suppliersForm');
+			form.action = action.toLowerCase() + '_sup.py';
+			form.querySelector('input[name="action"]').value = action;
+			form.submit();
+		}
+	</script>
+	<script>
+		function submitForm_log(action) {
+			var form = document.getElementById('loginform');
+			form.action = action.toLowerCase() + '_login.py';
+			form.querySelector('input[name="action"]').value = action;
+			form.submit();
+		}
+	</script>
+	<div class="relative group">
+		<a class="mr-5 cursor-pointer">LOG-IN-OUT</a>
+		<div class="dropdown-content">
+			<form id="logoutform" method="post" style="display: none;">
+				<input type="hidden" name="action" value="">
+			</form>
+			<a onclick="submitForm_out('Display')">Display</a>
+			<div class="dropdown-divider"></div>
+			<a href="#" onclick="submitForm_out('Search')">Search</a>
+			<a href="#" onclick="submitForm_out('Sort')">Sort</a>
+			<div class="dropdown-divider"></div>
+		</div>
+	 </div>
+		<script>
+		function submitForm_out(action) {
+			var form = document.getElementById('logoutform');
+			form.action = action.toLowerCase() + '_out.py';
+			form.querySelector('input[name="action"]').value = action;
+			form.submit();
+		}
+	</script>
+	
+	
+	
+
+
+
+
+	
+
+					
+				</nav>
+			</div>
+		</header>
+
+		<!-- Vertical side navigation -->
+		<div class="sidenav">
+			<a href="reorder.py">Reorder Level</a>
+			
+			
+			<a class="mr-5 hover:text-lightgray" href="supplierdetails.py">Suppliers Details</a>
+			<a href="hodrecords.py">HOD Records </a>
+			<button class="dropdown-btn">Record History
+			  <i class="fa fa-caret-down"></i>
+			   
+	</button>
+	<div class="dropdown-content">
+			<a href="login_history.py?action=Display">Login History</a>
+			<a href="item_history.py?action=Display">Item History</a>
+		</div>
+
+			<div class="relative group">
+    <div class="relative group">
+   
+        
+    </div>
+</div>
+</div>
+
+
+			
+		</div>
+
+		<main class="content">
+			<section class="inventory">
+				<div class="inventory-grid">
+					<div class="inventory-item">
+						<div class="inventory-icon">
+							<i class="fas fa-laptop"></i>
+						</div>
+						<h3 class="inventory-title">Record Books</h3>
+						<p class="inventory-description">Record books for different subjects and purposes.</p>
+					</div>
+					<div class="inventory-item">
+						<div class="inventory-icon">
+							<i class="fas fa-desktop"></i>
+						</div>
+						<h3 class="inventory-title">ID Cards</h3>
+						<p class="inventory-description">Different types of ID cards available for students and for other departments.</p>
+					</div>
+					<div class="inventory-item">
+						<div class="inventory-icon">
+							<i class="fas fa-projector"></i>
+						</div>
+						<h3 class="inventory-title">Projectors</h3>
+						<p class="inventory-description">High-resolution projectors for presentations and classrooms.</p>
+					</div>
+					<div class="inventory-item">
+						<div class="inventory-icon">
+							<i class="fas fa-print"></i>
+						</div>
+						<h3 class="inventory-title">Dusters & chalks</h3>
+						<p class="inventory-description">Variety of dusters and chalks for classroom use.</p>
+					</div>
+					<div class="inventory-item">
+						<div class="inventory-icon">
+							<i class="fas fa-router"></i>
+						</div>
+						<h3 class="inventory-title">Routers</h3>
+						<p class="inventory-description">Routers, switches, and other networking devices.</p>
+					</div>
+					<div class="inventory-item">
+						<div class="inventory-icon">
+							<i class="fas fa-router"></i>
+						</div>
+						<h3 class="inventory-title">Benches</h3>
+						<p class="inventory-description">Different types of benches for classrooms and common areas.</p>
+					</div>
+					<div class="inventory-item">
+						<div class="inventory-icon">
+							<i class="fas fa-book"></i>
+						</div>
+						<h3 class="inventory-title">Chairs</h3>
+						<p class="inventory-description"> Comfortable chairs for classrooms and offices.</p>
+					</div>
+					<div class="inventory-item">
+						<div class="inventory-icon">
+							<i class="fas fa-router"></i>
+						</div>
+						<h3 class="inventory-title">Batteries</h3>
+						<p class="inventory-description">Replacement batteries for microphones.</p>
+					</div>
+					<div class="inventory-item">
+						<div class="inventory-icon">
+							<i class="fas fa-router"></i>
+						</div>
+						<h3 class="inventory-title">Printer Cartridges</h3>
+						<p class="inventory-description">Cartridges for various printer models.</p>
+					</div>
+				</div>
+			</section>
+		</main>
+	<footer class="footer">
+			<div class="footer__section footer_addr">
+				<h2>Contact</h2>
+				<address>
+					Office : 8499981497<br>
+				</address>
+			</div>
+
+			<div class="footer__section">
+				<h2 class="nav__title">Email id:</h2>
+				<ul class="nav__ul">
+					<li>
+						<a href="mailto:admin@kmce.in">admin@kmce.in</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="footer__section">
+				<h2 class="nav__title">Landline:</h2>
+				<ul class="nav__ul">
+					<li>
+						<a href="tel:040-xxxx-123">040-xxxx-123</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="footer__section">
+				<h2 class="nav__title">Address:</h2>
+				<ul class="nav__ul">
+					<li>
+						<a href="#">Koheda Road, Ibrahimpatnam</a>
+					</li>
+				</ul>
+			</div>
+		</footer>
+
+		<script>
+			/* Dropdown functionality */
+			var dropdown = document.getElementsByClassName("dropdown-btn");
+			var i;
+
+			for (i = 0; i < dropdown.length; i++) {
+				dropdown[i].addEventListener("click", function () {
+					this.classList.toggle("active");
+					var dropdownContent = this.nextElementSibling;
+					if (dropdownContent.style.display === "block") {
+						dropdownContent.style.display = "none";
+					} else {
+						dropdownContent.style.display = "block";
+					}
+				});
+			}
+		</script>
+	</body>
+
+	</html>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

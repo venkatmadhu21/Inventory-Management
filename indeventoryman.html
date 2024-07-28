@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Add FontAwesome library link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFfnyIxbdOT+XqjsozG2P92QfSA" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+		/* Updated CSS for dropdown menu */
+			.group:hover .dropdown-content {
+				display: block;
+			}
+
+			.dropdown-content {
+				display: none;
+				position: absolute;
+				background-color: black;
+				color: white;
+				box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+				z-index: 1;
+				pointer-events: auto; /* Allow pointer events on dropdown */
+			}
+
+			.dropdown-content a {
+				color: white;
+				padding: 12px 16px;
+				text-decoration: none;
+				display: block;
+			}
+
+			.dropdown-content a:hover {
+				background-color: gray;
+			}
+
+
+
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f8f8f8;
+            border-bottom: 2px solid #cc0000;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: center;
+        }
+
+        .logo-column {
+            flex: 2;
+            text-align: left;
+        }
+
+        .header-container .text-column {
+            flex: 1;
+        }
+
+        .header-container h1,
+        .header-container h2,
+        .header-container p {
+            margin: 0;
+        }
+
+        .header-container h1 {
+            color: #cc0000;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .header-container h2 {
+            color: blue;
+            font-size: 1.25rem;
+            margin-bottom: 5px;
+        }
+
+        .header-container p {
+            color: #333;
+            font-size: 1rem;
+        }
+
+       .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0px 30px; /* Adjust padding as needed */
+    color: #ffffff;
+    background-color: #870E03;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-family: 'Poppins', sans-serif;
+    flex-wrap: wrap;
+    z-index: 1000;
+    width: 100%;
+}
+
+
+
+        .footer__section {
+            flex: 1;
+        }
+
+        .footer__addr {
+            margin-top: 0.4em;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        .footer__logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+        }
+
+        .footer__addr h2 {
+            margin-top: 0.4em;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .nav__title {
+            margin-top: 0.4em;
+            font-size: 15px;
+            font-weight: 600;
+            margin-left: auto;
+        }
+		.nav__title1 {
+            margin-top: 0.4em;
+            font-size: 15px;
+            font-weight: 600;
+            margin-left: auto;
+			margin-left: 110px;
+        }
+
+        .footer address {
+            margin-top: 0.4em;
+            font-style: normal;
+            color: white;
+        }
+
+        .footer__btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 36px;
+            max-width: max-content;
+            background-color: rgba(33, 33, 33, 0.07);
+            border-radius: 100px;
+            color: white;
+            line-height: 0;
+            margin: 0.6em 0;
+            font-size: 1rem;
+            padding: 0 1.3em;
+        }
+
+        .footer ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .footer li {
+            line-height: 30px;
+        }
+
+        .footer a {
+            text-decoration: none;
+        }
+
+        .footer__nav {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .nav__ul a {
+            color: white;
+        }
+		.nav__ul1{
+		    margin-left: 110px;
+		}
+
+        @media screen and (min-width: 24.375em) {
+            .legal .legal__links {
+                margin-left: auto;
+            }
+        }
+
+        @media screen and (min-width: 40.375em) {
+            .footer__nav {
+                flex: 2 0px;
+            }
+
+            .footer__addr {
+                flex: 1 0px;
+            }
+        }
+
+        .navbar {
+            background-color: maroon;
+            color: white;
+            padding-top: 120px;
+        }
+
+        .navbar a {
+            color: white;
+        }
+
+        .navbar a:hover {
+            color: lightgray;
+        }
+
+        .vertical-nav {
+            background-color: #333;
+            width: 200px;
+            height: 100vh;
+            position: fixed;
+            top: 100px;
+            left: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+        .vertical-nav a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .vertical-nav a:hover {
+            background-color: #575757;
+        }
+
+        .courses-offered {
+            padding: 2rem;
+            text-align: center;
+            margin-top: -150px;
+        }
+
+       .course-grid {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 2rem;
+          margin-bottom: 100px;
+          max-width: 1200px;
+          margin: 0 auto; /* Center the container horizontally */
+          overflow: hidden;
+          margin-left: 0px; /* Add margin to the left */
+          margin-right: 180px; /* Add margin to the right */
+}
+
+
+        .course-item {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            transition: transform 0.3s ease;
+            flex: 0 0 calc(33.33% - 1.33rem);
+            /* Added flex properties */
+            margin-bottom: 2rem;
+            /* Added margin-bottom */
+        }
+
+        .course-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-icon {
+            font-size: 3rem;
+            color: #cc0000;
+            margin-bottom: 1rem;
+        }
+
+        .course-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-description {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .content {
+            margin-left: 220px;
+            padding: 20px;
+            flex: 1;
+            padding-top: 140px;
+        }
+
+        .principal-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .principal-text {
+            flex-grow: 1;
+            margin-right: 50px;
+            /* Adjust spacing between photo and text */
+        }
+
+        .principal-photo {
+            width: 250x;
+            /* Adjust the width as needed */
+            height: 190px;
+            /* Adjust the height as needed */
+            margin-right: 30px;
+        }
+
+        .founder-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .founder-text {
+            flex-grow: 1;
+            margin-right: 50px;
+            /* Adjust spacing between photo and text */
+        }
+
+        .founder-photo {
+            width: 250px;
+            /* Adjust the width as needed */
+            height: 200px;
+            /* Adjust the height as needed */
+            margin-right: 30px;
+        }
+
+        .director-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .director-text {
+            flex-grow: 1;
+            margin-right: 50px;
+            /* Adjust spacing between photo and text */
+        }
+
+        .director-photo {
+            width: 300px;
+            /* Adjust the width as needed */
+            height: 200px;
+            /* Adjust the height as needed */
+            margin-right: 30px;
+        }
+
+        .info-section {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            margin-top: 20px;
+            /* Add some top margin to create space between sections */
+            position: relative;
+            /* Change position to relative */
+            z-index: 1;
+            /* Ensure the sections are above other content */
+        }
+
+        .info-section.active {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+
+    <title>About Us</title>
+</head>
+
+<body>
+    <header class="header-container">
+        <img src="images/logo.png" alt="College Logo" class="logo">
+        <div class="text-column">
+            <h1 class="text-4xl font-semibold main-heading">Keshav Memorial College Of Engineering</h1>
+            <p class="text-lg font-medium sub-heading mt-2">A unit of Keshav Memorial Technical Educational Society
+                (KMTES)</p>
+            <p>Approved by AICTE, New Delhi - Affiliated to Jawaharlal Nehru Technological University, Hyderabad</p>
+        </div>
+    </header>
+
+    <header class="text-gray-600 body-font navbar" role="navigation">
+        <div class="container mx-auto relative flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a href="index.html" class="flex title-font font-medium items-center mb-4 md:mb-0">
+               
+            </a>
+            <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+                <a class="mr-5 hover:text-lightgray" href="index.html">HOME</a>
+                <a class="mr-5 hover:text-lightgray" href="about.html">ABOUT US</a>
+                <a class="mr-5 hover:text-lightgray" href="check_indent.py">GENERATE AN INDENT</a>
+                <a class="mr-5 hover:text-lightgray" href="check_indent.py">GENERATE AN IV</a>
+				<a class="mr-5 hover:text-lightgray" href="rvform.py">GENERATE A RV</a>
+                <a class="mr-5 hover:text-lightgray" href="reqdetails.py">HOD DEMANDS</a>
+				
+				<div class="dropdown">
+					<div class="dropdown-content">
+					</div>
+				</div>
+			
+				<a href="index.html" class="flex title-font font-medium items-center mb-4 md:mb-0"></a>
+				<nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+				 <!-- Updated code with the form to display employee details -->
+				  
+	
+		</div>
+	</div>
+
+            </nav>
+        </div>
+    </header>
+    <main class="content">
+        <section class="courses-offered">
+            <div class="course-grid">
+                <div class="course-item">
+                    <div class="course-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3 class="course-title">What is Indent?</h3>
+                    <p class="course-description">An indent form requests inventory procurement or replenishment, detailing item info, quantities, requester details, date, and instructions.</p>
+                </div>
+                <div class="course-item">
+                    <div class="course-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="course-title">What is IV?</h3>
+                    <p class="course-description">An issue voucher, or IV, is a brief document detailing an issued invoice, crucial for accounting and financial tracking.</p>
+                </div>
+                <div class="course-item">
+                    <div class="course-icon">
+                        <i class="fas fa-cloud-rain"></i>
+                    </div>
+                    <h3 class="course-title">What is RV?</h3>
+                    <p class="course-description">A receipt voucher, or RV, is a concise document confirming received payment or goods, essential for accurate financial records.</p>
+                </div>
+            </div>
+        </section>
+		 <footer class="footer">
+        <div class="footer_section footer_addr">
+            <h2>Contact</h2>
+            <address style="color: white;">
+                Office : 8499981497<br>
+            </address>
+        </div>
+        <div class="footer__section">
+            <h2 class="nav__title1">Email id:</h2>
+            <ul class="nav__ul1">
+                <li><a href="mailto:admin@kmce.in" style="color: white;">admin@kmce.in</a></li>
+            </ul>
+        </div>
+        <div class="footer__section">
+            <h2 class="nav__title">Landline:</h2>
+            <ul class="nav__ul" style="color: white;">
+                <li><a href="tel:040-xxxx-123">040-xxxx-123</a></li>
+            </ul>
+        </div>
+        <div class="footer__section">
+            <h2 class="nav__title">Address:</h2>
+            <ul class="nav__ul" style="color: white;">
+                <li><a href="#">Koheda Road, Ibrahimpatnam</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        function showInfo(sectionId) {
+            var sections = document.querySelectorAll('.info-section');
+            sections.forEach(function (section) {
+                section.classList.remove('active');
+            });
+            var section = document.getElementById(sectionId);
+            section.classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
+
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function showInfo(sectionId) {
+            var sections = document.querySelectorAll('.info-section');
+            sections.forEach(function (section) {
+                section.classList.remove('active');
+            });
+            var section = document.getElementById(sectionId);
+            section.classList.add('active');
+        }
+   
+</body>
+</html>
+
+</body>
+
+</html>

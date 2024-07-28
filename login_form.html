@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="footer.css" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f8f8f8;
+            border-bottom: 2px solid #cc0000;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: center;
+        }
+
+        .logo-column {
+            flex: 2;
+            text-align: left;
+        }
+
+        .text-column {
+            flex: 2;
+            text-align: center;
+        }
+
+        .text-column h1 {
+            margin: 0;
+            color: #cc0000;
+        }
+
+        .header-container .text-column {
+            flex: 1;
+        }
+
+        .text-column p {
+            margin: 5px 0;
+            color: #333;
+        }
+
+        .header-container h1,
+        .header-container h2,
+        .header-container p {
+            margin: 0;
+        }
+
+        .header-container h1 {
+            color: #cc0000;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .container {
+            margin-top: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            margin-left: 300px;
+        }
+
+        .top-navigation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+            background-color: #800000;
+            color: white;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .top-navigation a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .top-navigation a:hover {
+            background-color: #8B0000;
+        }
+
+        .login-form {
+            margin-bottom: 20px;
+            width: 70%;
+            padding: 5px;
+        }
+
+        .login-form h2 {
+            margin-bottom: 20px;
+            color: #800000;
+            text-align: center;
+        }
+
+        .login-form label {
+            margin-right: 10px;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #800000;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+        }
+
+        .password-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .password-wrapper input {
+            flex: 1;
+            padding-right: 40px;
+        }
+
+        .password-wrapper .toggle-password {
+            position: absolute;
+            right: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .login-form button {
+            width: 50%;
+            padding: 10px;
+            background-color: #800000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 0px auto;
+            display: block;
+        }
+
+        .login-form button:hover {
+            background-color: #8B0000;
+            margin: 0px auto;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 0px 30px;
+            color: #ffffff;
+            background-color: #870E03;
+            position: absolute;
+            height: 66px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            font-family: 'Poppins', sans-serif;
+            flex-wrap: wrap;
+        }
+
+        .footer__section {
+            flex: 1;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        .footer__addr {
+            margin-bottom: 2em;
+        }
+
+        .footer__logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+        }
+
+        .footer__addr h2,
+        .nav__title {
+            margin-top: 0.4em;
+            margin-bottom: auto;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .footer address {
+            margin-top: 0.4em;
+            margin-bottom: auto;
+            font-style: normal;
+            color: white;
+        }
+
+        .footer__btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 36px;
+            max-width: max-content;
+            background-color: rgba(33, 33, 33, 0.07);
+            border-radius: 100px;
+            color: white;
+            line-height: 0;
+            margin: 0.6em 0;
+            font-size: 1rem;
+            padding: 0 1.3em;
+        }
+
+        .footer ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .footer li {
+            line-height: 0px;
+        }
+
+        .footer a {
+            text-decoration: none;
+        }
+
+        .footer__nav {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .nav__ul a {
+            color: white;
+        }
+
+        @media screen and (min-width: 24.375em) {
+            .legal .legal__links {
+                margin-left: auto;
+            }
+        }
+
+        @media screen and (min-width: 40.375em) {
+            .footer__nav {
+                flex: 2 0px;
+            }
+        }
+
+        .footer__addr {
+            flex: 1 0px;
+        }
+
+        .action-bar-form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .action-bar-form label {
+            margin-bottom: 8px;
+        }
+
+        .action-bar-form input,
+        .action-bar-form select,
+        .action-bar-form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+        }
+
+        .action-bar-form button {
+            width: 50%;
+            padding: 10px;
+            background-color: #800000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .action-bar-form button:hover {
+            background-color: #8B0000;
+        }
+
+        .action-bar {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f8f8f8;
+            border-top: 2px solid #cc0000;
+            width: 100%;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+        }
+
+        .action-bar p {
+            margin: 0;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header-container">
+        <img src="images/logo.png" alt="College Logo" class="logo">
+        <div class="text-column">
+            <h1 class="text-4xl font-semibold main-heading">Keshav Memorial College Of Engineering</h1>
+            <p class="text-lg font-medium sub-heading mt-2">A unit of Keshav Memorial Technical Educational Society (KMTES)</p>
+            <p>Approved by AICTE, New Delhi - Affiliated to Jawaharlal Nehru Technological University, Hyderabad</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="top-navigation">
+            <a class="mr-5 hover:text-lightgray" href="index.html">HOME</a>
+            <a class="mr-5 hover:text-lightgray" href="about.html">ABOUT US</a>
+            <a class="mr-5 hover:text-lightgray" href="login_form.html">LOGIN</a>
+        </div>
+        <div class="login-form">
+            <h2>Login</h2>
+            <form method='post' action='login_form.py'>
+                <p>
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" required />
+                </p>
+                <p>
+                    <label for="password">Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" name="password" id="password" required />
+                        <span class="toggle-password" onclick="togglePasswordVisibility()">&#x1F441;</span>
+                    </div>
+                </p>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+        <div class="action-bar">
+            <p>© 2024 Keshav Memorial College Engineering. All rights reserved.</p>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer_section footer__addr">
+            <h2>Contact</h2>
+            <address>
+                Office : 8499981497<br>
+            </address>
+        </div>
+        <div class="footer__section">
+            <h2 class="nav__title">Email id:</h2>
+            <ul class="nav__ul">
+                <li>
+                    <a href="mailto:admin@kmce.in">admin@kmce.in</a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer__section">
+            <h2 class="nav__title">Landline:</h2>
+            <ul class="nav__ul">
+                <li>
+                    <a href="tel:040-xxxx-123">040-xxxx-123</a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer__section">
+            <h2 class="nav__title">Address:</h2>
+            <ul class="nav__ul">
+                <li>
+                    <a href="#">Koheda Road, Ibrahimpatnam</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <script>
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.querySelector('.toggle-password');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.innerHTML = '&#x1F441;&#xFE0E;';
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.innerHTML = '&#x1F441;';
+            }
+        }
+    </script>
+</body>
+
+</html>

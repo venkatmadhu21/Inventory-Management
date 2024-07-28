@@ -1,0 +1,122 @@
+#!C:\Users\user\AppData\Local\Programs\Python\Python37\python.exe
+
+import cgi
+import cgitb
+
+# Enable traceback for debugging CGI scripts
+cgitb.enable()
+
+# Generate HTML response
+print("Content-type: text/html\n")
+print("""
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Indent Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .form-container {
+            width: 70%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .form-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-header h1 {
+            margin: 0;
+        }
+        .form-header p {
+            margin: 0;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: none; /* Remove borders from input fields */
+        }
+        .form-group table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .form-group th, .form-group td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #000; /* Add borders to table cells */
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            <h1>Keshav Memorial College of Engineering</h1>
+            <p>Koheda Road, Chinthapallyguda(M), Ibrahimpatnam(M), RR Dist - 501510(T.S.)</p>
+            <p>Ph: 9160102123, 8499918437</p>
+            <h2>Indent Form</h2>
+
+        </div>
+        <form method="post" action="/cgi-bin/submit_indent.py">
+            <div class="form-group">
+                <label for="indentNo">Indent No:</label>
+                <input type="text" id="indentNo" name="indentNo" value="005" readonly>
+            </div>
+            <div class="form-group">
+                <label for="department">Name of the Department:</label>
+                <input type="text" id="department" name="department" value="Library" readonly>
+            </div>
+            <div class="form-group">
+                <label for="itemDetails">Item Details:</label>
+                <table>
+                    <tr>
+                        <th>Sl No.</th>
+                        <th>Name of the Item</th>
+                        <th>Qty Required</th>
+                        <th>Appros. Cost</th>
+                        <th>Remarks</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td><input type="text" name="itemName1" value="Laxmi Bank Cashdrawer"></td>
+                        <td><input type="text" name="qty1" value="1"></td>
+                        <td><input type="text" name="cost1" value="100"></td>
+                        <td><input type="text" name="remarks1" value="Copy attached"></td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </table>
+            </div>
+            <div class="form-group">
+                <label for="requestedBy">Requested by:</label>
+                <input type="text" id="requestedBy" name="requestedBy">
+            </div>
+            <div class="form-group">
+                <label for="hodSignature">Admin Head / HOD Signature:</label>
+                <input type="text" id="hodSignature" name="hodSignature">
+            </div>
+            <div class="form-group">
+                <label for="approvedBy">Approved By:</label>
+                <input type="text" id="approvedBy" name="approvedBy">
+            </div>
+            <div class="form-group">
+                <label for="principal">Principal:</label>
+                <input type="text" id="principal" name="principal">
+            </div>
+            <div class="form-group">
+                <label for="director">Director:</label>
+                <input type="text" id="director" name="director">
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
+""")
